@@ -79,26 +79,26 @@ def start_npr():
 
 @app.route("/listen", methods=['POST','GET'])
 def listen():
-    print("Starting..."))
+    print("Starting...")
     return start_npr()
 
 @app.route("/pause")
 def pause():
-    print("Pausing"))
+    print("Pausing")
     s = get_sonos()
     s.pause()
     return "OK"
 
 @app.route("/resume")
 def resume():
-    print("Resuming track"))
+    print("Resuming track")
     s = get_sonos()
     s.play()
     return "OK"
 
 @app.route("/skip")
 def skip():
-    print("Skipping track"))
+    print("Skipping track")
     s = get_sonos()
     s.next()
     return "OK"
