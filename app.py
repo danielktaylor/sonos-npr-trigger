@@ -41,7 +41,8 @@ def get_latest_playlist():
                 p = a.parent
                 href = p.get('href')
                 href = href.split('?')[0]
-                story_title = a.find_parent('article', {"class": "rundown-segment"}).find('h3', {"class": "rundown-segment__title"}).find('a').text
+                #story_title = a.find_parent('article', {"class": "rundown-segment"}).find('h3', {"class": "rundown-segment__title"}).find('a').text
+                story_title = "Title"
                 files.append([href, story_title])
 
         m3u[program] = files
