@@ -33,7 +33,7 @@ def get_latest_playlist():
         soup = BeautifulSoup(page.text, 'html.parser')
         audioLabels = soup.find_all(class_='audio-tool-label')
         dates[program] = parse(
-            soup.find('meta', attrs={'name': 'date'})['content'])
+            soup.find("div", {"class": "current"}).find("time")['datetime'])
 
         files = []
         for a in audioLabels:
