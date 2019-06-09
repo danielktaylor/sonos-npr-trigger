@@ -68,9 +68,24 @@ def get_latest_playlist():
     return m3u[latest]
 
 def start_npr():
+    # Grab the Sonos
     s = get_sonos()
+    
+    # Create a group with all devices
+    s.partymode()
+    
+    # Stop and clear queue
     s.stop()
     s.clear_queue()
+    
+    # Set volume to 38%
+    if not s.group:
+        s.volume = 38
+    else:
+        for g in s.group.members:
+            g.volume = 38
+            
+    # Send the playlist and start playing
     playlist = get_latest_playlist()
     for mp3 in playlist:
         print("Adding MP3: %s" % mp3)
