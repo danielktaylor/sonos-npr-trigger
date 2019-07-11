@@ -78,12 +78,12 @@ def start_npr():
     s.stop()
     s.clear_queue()
     
-    # Set volume to 38%
+    # Set volume to 32%
     if not s.group:
-        s.volume = 38
+        s.volume = 32
     else:
         for g in s.group.members:
-            g.volume = 38
+            g.volume = 32
             
     # Send the playlist and start playing
     playlist = get_latest_playlist()
