@@ -1,6 +1,7 @@
 from __future__ import print_function
 from flask import Flask
 import soco
+from threading import Thread
 
 # Page scraping
 import requests
@@ -97,7 +98,8 @@ def start_npr():
 @app.route("/listen", methods=['POST','GET'])
 def listen():
     print("Starting...")
-    return start_npr()
+    Thread(target=start_npr).start()
+    return "OK"
 
 @app.route("/pause")
 def pause():
@@ -135,4 +137,3 @@ def volumedown():
     vol = sonos.volume
     sonos.volume = vol-10
     return "OK"
-
